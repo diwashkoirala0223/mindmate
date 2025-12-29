@@ -8,7 +8,7 @@ CORS(app)  # Enable Cross-Origin Resource Sharing for frontend
 
 # --- Configuration ---
 # To use a real AI (like Gemini, OpenAI), you would add your API Key here.
-USE_REAL_AI = True
+USE_REAL_AI = False
 API_KEY = "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"
 
 # --- Therapist Persona & Knowledge Base (Offline Mode) ---
@@ -1048,3 +1048,4 @@ def chat():
 if __name__ == '__main__':
     print("MindMate Therapist Server running on http://localhost:5000")
     app.run(debug=True, port=5000)
+
