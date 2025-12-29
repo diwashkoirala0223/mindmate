@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMate — Physical Health</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="fade-in">
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand">MindMate</div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="mental.html" class="nav-link">Mental</a>
+        <a href="physical.html" class="nav-link active">Physical</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="text-center" style="margin-bottom: 2rem;">
+      <h1>Physical Health</h1>
+      <p class="muted">Stats, tracking, and fitness goals.</p>
+    </div>
+
+    <!-- Feature Links -->
+    <div class="grid" style="margin-bottom: 24px;">
+      <a href="nutrition.html" class="card"
+        style="text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <h3>🍎 Nutrition & Water</h3>
+          <p class="muted">Log calories and hydration.</p>
+        </div>
+        <span style="font-size: 1.5rem; color: hsl(var(--primary));">→</span>
+      </a>
+      <a href="sleep.html" class="card"
+        style="text-decoration: none; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <h3>💤 Sleep Tracker</h3>
+          <p class="muted">Monitor your sleep quality.</p>
+        </div>
+        <span style="font-size: 1.5rem; color: hsl(var(--primary));">→</span>
+      </a>
+    </div>
+
+    <div class="grid">
+      <!-- Steps (Kept on Hub) -->
+      <section class="card delay-1">
+        <h2>Steps</h2>
+        <div class="text-center" style="margin: 20px 0;">
+          <div class="stat-value" id="stepsTotal">0</div>
+          <div class="stat-label">Steps Today</div>
+        </div>
+        <div style="display: flex; gap: 8px; justify-content: center;">
+          <button onclick="addSteps(500)" class="btn btn-sm btn-secondary">+500</button>
+          <button onclick="addSteps(1000)" class="btn btn-sm btn-secondary">+1k</button>
+        </div>
+        <div style="margin-top: 10px; display: flex; gap: 5px;">
+          <input id="stepInput" type="number" placeholder="Custom" style="padding: 6px;">
+          <button onclick="addCustomSteps()" class="btn btn-sm btn-primary">Add</button>
+        </div>
+      </section>
+
+      <!-- Weight (Kept on Hub) -->
+      <section class="card delay-2">
+        <h2>Weight</h2>
+        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+          <input id="weightInput" type="number" placeholder="Kg">
+          <button onclick="saveWeight()" class="btn btn-primary">Save</button>
+        </div>
+        <div style="height: 200px;">
+          <canvas id="weightChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Heartbeat (Kept on Hub) -->
+      <section class="card delay-3">
+        <h2>Heart Rate</h2>
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+          <div class="stat-value" id="lastBpm" style="font-size: 1.5rem;">—</div>
+          <div class="stat-label">BPM</div>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <input id="bpmInput" type="number" placeholder="BPM">
+          <button onclick="saveBpm()" class="btn btn-primary">Log</button>
+        </div>
+        <button onclick="simulateBpm()" class="btn btn-sm btn-secondary" style="width: 100%; margin-top: 10px;">Simulate
+          Measure</button>
+      </section>
+
+      <!-- Dashboard / Export -->
+      <section class="card" style="grid-column: 1 / -1;">
+        <h2>Export Data</h2>
+        <p class="muted">Download all your health data as a JSON file.</p>
+        <div id="snapshot" class="muted" style="margin-bottom: 10px;"></div>
+        <button onclick="exportData()" class="btn btn-secondary">Download Backup</button>
+        <a id="downloadLink" style="display: none;"></a>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      if (window.renderSteps) window.renderSteps();
+      if (window.renderWeightChart) window.renderWeightChart();
+      if (window.renderSnapshot) window.renderSnapshot();
+
+      // Init weight chart if data exists
+      if (window.renderWeightChart) window.renderWeightChart();
+    });
+  </script>
+</body>
+
+</html>

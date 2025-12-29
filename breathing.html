@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMate — Breathe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="fade-in">
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand">MindMate</div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="mental.html" class="nav-link active">Mental</a>
+        <a href="physical.html" class="nav-link">Physical</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="text-center" style="margin-bottom: 2rem;">
+      <h1>Breathing Exercises</h1>
+      <p class="muted">Find your calm with guided breathing patterns.</p>
+    </div>
+
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+      <div class="text-center" style="margin-bottom: 20px;">
+        <label for="breathSelect" class="muted" style="display:block; margin-bottom: 8px;">Select Technique</label>
+        <select id="breathSelect" style="max-width: 300px;"></select>
+      </div>
+
+      <div class="breath-container">
+        <div id="breathCircle" class="breathCircle breath-circle">
+          <span style="font-size: 1rem;">Ready</span>
+        </div>
+        <h2 id="breathText" style="margin-top: 20px; color: var(--primary);">Select & Start</h2>
+      </div>
+
+      <div class="text-center" style="margin-top: 20px; display: flex; gap: 10px; justify-content: center;">
+        <button onclick="startBreathing()" class="btn btn-primary">Start Session</button>
+        <button onclick="stopBreathing()" class="btn btn-secondary">Stop</button>
+      </div>
+      
+      <p class="muted text-center" style="margin-top: 24px; font-size: 0.85rem;">
+        Follow the circle: Expand when it grows (inhale), contract when it shrinks (exhale).
+      </p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      // Small delay to ensure app.js funcs are ready if needed
+      if(window.renderBreathOptions) window.renderBreathOptions(); 
+    });
+  </script>
+</body>
+</html>

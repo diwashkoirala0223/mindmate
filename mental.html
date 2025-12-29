@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMate — Mental Wellness</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="fade-in">
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand">MindMate</div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="mental.html" class="nav-link active">Mental</a>
+        <a href="physical.html" class="nav-link">Physical</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="text-center" style="margin-bottom: 2rem;">
+      <h1>Mental Wellness</h1>
+      <p class="muted">Track your mood, reflect, and find peace.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Daily Encouragement (kept here as dashboard) -->
+      <section class="card delay-1">
+        <h3>✨ Daily Inspiration</h3>
+        <p id="encourage" style="font-size: 1.2rem; font-style: italic; margin: 20px 0;">Loading...</p>
+        <button onclick="generateEncouragement()" class="btn btn-sm btn-secondary">New Quote</button>
+      </section>
+
+      <!-- Mood Logger (kept here as dashboard) -->
+      <section class="card delay-2">
+        <h3>How are you feeling?</h3>
+        <div id="emotionContainer" class="emotion-grid" style="max-height: 150px; overflow-y: auto; margin-top: 10px;">
+        </div>
+        <div class="muted" style="margin-top: 10px;">Logged today: <span id="emLogged">0</span></div>
+      </section>
+
+      <!-- Feature Links -->
+      <section class="card delay-3" style="grid-column: 1 / -1;">
+        <h3>Tools & Exercises</h3>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+          <a href="chat.html" class="btn btn-primary" style="justify-content: space-between;">
+            <span>AI Therapist Chat</span> <span>→</span>
+          </a>
+          <a href="journal.html" class="btn btn-primary" style="justify-content: space-between;">
+            <span>Daily Journal</span> <span>→</span>
+          </a>
+          <a href="breathing.html" class="btn btn-primary" style="justify-content: space-between;">
+            <span>Breathing Exercises</span> <span>→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Insights -->
+      <section class="card" style="grid-column: 1 / -1;">
+        <h3>Mood Insights</h3>
+        <div id="insights" class="muted">No data available yet. Start logging your emotions!</div>
+        <button onclick="showMoodInsights()" class="btn btn-sm btn-secondary" style="margin-top: 10px;">Refresh
+          Insights</button>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      if (window.generateEncouragement) window.generateEncouragement();
+      if (window.renderEmotionButtons) window.renderEmotionButtons();
+      if (window.showMoodInsights) window.showMoodInsights();
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMate — Nutrition</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="fade-in">
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand">MindMate</div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="mental.html" class="nav-link">Mental</a>
+                <a href="physical.html" class="nav-link active">Physical</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="text-center" style="margin-bottom: 2rem;">
+            <h1>Nutrition & Hydration</h1>
+            <p class="muted">Fuel your body with the right balance.</p>
+        </div>
+
+        <div class="grid">
+            <!-- Calories Section -->
+            <section class="card delay-1">
+                <h2>Calorie Log</h2>
+                <div class="grid" style="grid-template-columns: 2fr 1fr auto; gap: 10px; margin-bottom: 20px;">
+                    <input id="foodSearch" placeholder="Food item (e.g. Apple)">
+                    <input id="foodCalInput" type="number" placeholder="Kcal">
+                    <button onclick="addFoodFromUI()" class="btn btn-primary">Add</button>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <small class="muted">Quick Add:</small>
+                    <div id="foodSuggestions" class="emotion-grid" style="margin-top: 5px;"></div>
+                </div>
+
+                <div style="background: rgba(255,255,255,0.5); border-radius: 12px; padding: 10px; margin-top: 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600;">
+                        <span>Today's Log</span>
+                        <span>Total: <span id="calTotal">0</span> kcal</span>
+                    </div>
+                    <div id="foodList" style="max-height: 200px; overflow-y: auto;"></div>
+                </div>
+
+                <button onclick="clearFoods()" class="btn btn-secondary btn-sm"
+                    style="margin-top: 10px; color: var(--danger, #e11d48);">Clear Daily Log</button>
+            </section>
+
+            <!-- Water Section -->
+            <section class="card delay-2">
+                <h2>Hydration Tracker</h2>
+                <div class="text-center" style="margin: 20px 0;">
+                    <div class="stat-value" id="waterTotal">0</div>
+                    <div class="stat-label">Milliliters</div>
+                </div>
+
+                <div class="progress-bar" style="margin-bottom: 20px;">
+                    <div id="waterFill" class="progress-fill" style="width: 0%;"></div>
+                </div>
+
+                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                    <button onclick="addWater(250)" class="btn btn-secondary">+250ml</button>
+                    <button onclick="addWater(500)" class="btn btn-secondary">+500ml</button>
+                    <button onclick="addWater(1000)" class="btn btn-secondary">+1L</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            if (window.renderFoodList) window.renderFoodList();
+            if (window.renderWater) window.renderWater();
+            if (window.suggestFoods) window.suggestFoods();
+        });
+    </script>
+</body>
+
+</html>

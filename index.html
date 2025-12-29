@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMate — Wellness Companion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="fade-in">
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand">MindMate</div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="mental.html" class="nav-link">Mental</a>
+        <a href="physical.html" class="nav-link">Physical</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="text-center" style="padding: 40px 0;">
+      <h1 class="hero-title">Wellness,<br>Reimagined.</h1>
+      <p class="hero-subtitle">Your personal companion for mental clarity and physical vitality. Privacy-first,
+        offline-ready.</p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="mental.html" class="btn btn-primary" style="padding: 16px 32px; font-size: 1.1rem;">Explore Mental
+          Health</a>
+        <a href="physical.html" class="btn btn-secondary" style="padding: 16px 32px; font-size: 1.1rem;">Explore
+          Physical Health</a>
+      </div>
+    </section>
+
+    <div class="grid" style="margin-top: 40px;">
+      <div class="card delay-1">
+        <h3>🔍 Unified Dashboard</h3>
+        <p class="muted">Get a quick snapshot of your wellbeing. mental and physical stats combined in one view.</p>
+      </div>
+      <div class="card delay-2">
+        <h3>⚡ Habit Building</h3>
+        <p class="muted">Track streaks for water, meditation, and sleep to build lasting positive habits.</p>
+      </div>
+      <div class="card delay-3">
+        <h3>🛡️ Private & Secure</h3>
+        <p class="muted">Your data lives on your device. No cloud uploads, no tracking. Total privacy.</p>
+      </div>
+    </div>
+
+    <section class="card" style="margin-top: 40px;">
+      <h2>Quick Actions</h2>
+      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+        <a href="journal.html" class="btn btn-secondary">✍️ Write Journal</a>
+        <a href="breathing.html" class="btn btn-secondary">🧘 Breathe</a>
+        <a href="nutrition.html" class="btn btn-secondary">🍎 Log Food</a>
+        <a href="chat.html" class="btn btn-secondary">💬 Chat AI</a>
+      </div>
+    </section>
+
+    <footer class="text-center muted" style="margin-top: 60px;">
+      <small>© 2024 MindMate. Not a replacement for professional medical help.</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      // Basic init
+      if (window.greetUser) window.greetUser(); // If we keep this function
+    });
+  </script>
+</body>
+
+</html>

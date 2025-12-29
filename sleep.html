@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMate — Sleep</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="fade-in">
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand">MindMate</div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="mental.html" class="nav-link">Mental</a>
+                <a href="physical.html" class="nav-link active">Physical</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="text-center" style="margin-bottom: 2rem;">
+            <h1>Sleep Tracker</h1>
+            <p class="muted">Rest is the foundation of health.</p>
+        </div>
+
+        <div class="card" style="max-width: 500px; margin: 0 auto;">
+            <h2>Log Last Night</h2>
+            <div style="display: flex; gap: 10px; align-items: center; margin: 20px 0;">
+                <input id="sleepHours" type="number" placeholder="Hours (e.g. 7.5)" style="flex:1;">
+                <button onclick="saveSleep()" class="btn btn-primary">Save Log</button>
+            </div>
+
+            <div class="text-center" style="padding: 20px; background: rgba(240,249,255,0.5); border-radius: 12px;">
+                <div class="muted">Latest Entry</div>
+                <div class="stat-value" id="lastSleep">—</div>
+                <div class="stat-label">Hours</div>
+            </div>
+
+            <div class="muted text-center" style="margin-top: 20px; font-size: 0.85rem;">
+                Tip: Adults typically need 7-9 hours of quality sleep.
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        // App.js handles the loading of data typically, 
+        // but we can ensure displayed val is correct if needed on load
+    </script>
+</body>
+
+</html>

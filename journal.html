@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindMate — Journal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="fade-in">
+  <header class="site-header">
+    <div class="header-content">
+      <div class="brand">MindMate</div>
+      <nav class="header-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="mental.html" class="nav-link active">Mental</a>
+        <a href="physical.html" class="nav-link">Physical</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="text-center" style="margin-bottom: 2rem;">
+      <h1>Reflect & Journal</h1>
+      <p class="muted">Write down your thoughts, feelings, and daily experiences.</p>
+    </div>
+
+    <div class="grid">
+      <section class="card delay-1">
+        <h2>New Entry</h2>
+        <div style="margin-bottom: 1rem;">
+          <textarea id="journalText" rows="6" placeholder="What's on your mind today?"></textarea>
+        </div>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+          <button onclick="saveJournal()" class="btn btn-primary">Save Entry</button>
+        </div>
+      </section>
+
+      <section class="card delay-2">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+          <h2>Your History</h2>
+          <button onclick="showJournal()" class="btn btn-secondary btn-sm">Refresh List</button>
+        </div>
+        <div id="journalList" style="max-height: 400px; overflow-y: auto;">
+          <div class="muted text-center" style="padding: 20px;">Loading your entries...</div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize page
+    window.addEventListener('load', () => {
+      showJournal(); 
+    });
+  </script>
+</body>
+</html>

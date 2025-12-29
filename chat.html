@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindMate — Assistant</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="fade-in">
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand">MindMate</div>
+            <nav class="header-nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="mental.html" class="nav-link active">Mental</a>
+                <a href="physical.html" class="nav-link">Physical</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="text-center" style="margin-bottom: 2rem;">
+            <h1>AI Companion</h1>
+            <p class="muted">A safe space to vent or ask for advice. All data stays on your device.</p>
+        </div>
+
+        <div class="card"
+            style="max-width: 800px; margin: 0 auto; height: 70vh; display: flex; flex-direction: column;">
+            <div id="chatBox" class="chat-window" style="flex: 1;">
+                <!-- Chat bubbles appear here -->
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <input id="chatInput" placeholder="Type a message... (e.g. I feel anxious)" style="flex: 1;">
+                <button onclick="sendChat()" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        window.addEventListener('load', () => {
+            if (window.renderChat) window.renderChat();
+
+            // Allow enter key to send
+            document.getElementById('chatInput').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendChat();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
