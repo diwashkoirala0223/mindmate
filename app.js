@@ -324,27 +324,47 @@ function getTherapistResponseLocal(userText) {
 // Connects to Python Flask server on port 5000
 
 async function sendChat() {
-  const input = $('chatInput'); if (!input) return;
-  const text = input.value.trim(); if (!text) return;
+  const input = $('chatInput');
+  if (!input) return;
 
-  // 1. Add User Message
+  const text = input.value.trim();
+  if (!text) return;
+
+  // User message
   chatHistory.push({ role: 'user', text, date: new Date().toISOString() });
   storage.set('chats', chatHistory);
   renderChat();
   input.value = '';
 
-  // 2. Try Local Response First (Simulate Thinking)
-  setTimeout(() => {
-    const reply = getTherapistResponseLocal(text);
+  // Try backend first
+  try {
+    const res = await fetch("https://mindmate-backend.onrender.com/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: text })
+    });
 
-    // 3. Add Bot Message
+    if (!res.ok) throw new Error("Backend not reachable");
+
+    const data = await res.json();
+    const reply = data.reply;
+
     chatHistory.push({ role: 'bot', text: reply, date: new Date().toISOString() });
     storage.set('chats', chatHistory);
     renderChat();
+    return;
 
-    // Crisis check
-    if (/suicide|kill myself|cant go on|die/i.test(text)) alert('If you are in immediate danger, please call emergency services now.');
-  }, 800);
+  } catch (err) {
+    console.warn("Backend failed, using offline mode");
+  }
+
+  // Fallback: offline therapist
+  setTimeout(() => {
+    const reply = getTherapistResponseLocal(text);
+    chatHistory.push({ role: 'bot', text: reply, date: new Date().toISOString() });
+    storage.set('chats', chatHistory);
+    renderChat();
+  }, 600);
 }
 function renderChat() {
   if (!$('chatBox')) return;
@@ -500,4 +520,5 @@ window.exportData = exportData;
 window.renderWeightChart = renderWeightChart;
 window.renderFoodList = renderFoodList;
 window.renderBadges = renderBadges;
+
 
