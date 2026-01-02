@@ -999,8 +999,13 @@ therapist_patterns = {
             "Let's explore your infatuation. What stands out?",
             "It's okay to feel attracted. How might you express it safely?"
         ]
+    },
+     "bye":{
+    "keywords": ["bye", "goodbye", "Bye"],
+        "responses": [
+            "Okay bye... Fell free to retext whenever you are feeling low. I am alwaysa here for you."
     }
-    }
+}
     fallback_responses = [
         "I'm listening. Tell me more about that.",
         "How does that make you feel?",
@@ -1048,5 +1053,6 @@ def chat():
 if __name__ == '__main__':
     print("MindMate Therapist Server running on http://localhost:5000")
     app.run(debug=True, port=5000)
+
 
 
