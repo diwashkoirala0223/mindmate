@@ -1218,6 +1218,7 @@ const therapistPatterns = {
     "keywords": ["bye", "goodbye", "Bye"],
         "responses": [
             "Okay bye... Fell free to retext whenever you are feeling low. I am alwaysa here for you."
+          }
 };
 
 const fallbackResponses = [
@@ -1454,6 +1455,7 @@ window.exportData = exportData;
 window.renderWeightChart = renderWeightChart;
 window.renderFoodList = renderFoodList;
 window.renderBadges = renderBadges;
+
 
 
 
